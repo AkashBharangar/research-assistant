@@ -21,9 +21,14 @@
 
 
 from agent import run_agent
+from utils.report import save_report
 
 query = input("Enter topic: ")
 
 report = run_agent(query)
 
+path = save_report(query, report)
+
 print(report)
+
+print(f"Report saved in: {path}")
