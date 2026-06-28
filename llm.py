@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
+from tools import read_page, web_search
 
 load_dotenv()
 
@@ -8,3 +9,6 @@ llm = ChatGroq(
     temperature=0
 )
 
+tools = [web_search, read_page]
+
+llm_with_tools = llm.bind_tools(tools)
